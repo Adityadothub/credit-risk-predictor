@@ -5,9 +5,11 @@ st.set_page_config(
     layout="centered"
 )
 
+# ✅ ADD HERE (TOP NOTE)
+st.caption("Inspired by a credit card delinquency analysis simulation completed on Forage, this project adapts key risk factors and extends them into a machine learning-based credit risk prediction tool.")
+
 # ---------------- TITLE ----------------
 st.title("Credit Risk Prediction System")
-
 # ---------------- INTRO ----------------
 st.write("""
 This application helps estimate whether a person is likely to repay a loan or may default.
@@ -57,6 +59,10 @@ The result will indicate whether the profile is **High Risk** or **Low Risk**.
 """)
 
 st.divider()
+
+# ---------------- NOTE ----------------
+
+
 
 # ---------------- NOTE ----------------
 st.info("""
