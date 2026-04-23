@@ -5,8 +5,11 @@ st.set_page_config(
     layout="centered"
 )
 
-# ✅ ADD HERE (TOP NOTE)
-st.caption("Inspired by a credit card delinquency analysis simulation completed on Forage, this project adapts key risk factors and extends them into a machine learning-based credit risk prediction tool.")
+# ✅ Highlighted box at top
+st.info("Inspired by a credit card delinquency analysis simulation completed on Forage. This project adapts key risk factors and extends them into a machine learning-based credit risk prediction tool.")
+
+# Title
+st.title("Credit Risk Prediction System")
 
 # ---------------- TITLE ----------------
 st.title("Credit Risk Prediction System")
