@@ -10,6 +10,7 @@ st.info("Inspired by a credit card delinquency analysis simulation completed on 
 
 # ---------------- TITLE ----------------
 st.title("Credit Risk Prediction System")
+
 # ---------------- INTRO ----------------
 st.write("""
 This application helps estimate whether a person is likely to repay a loan or may default.
@@ -61,11 +62,24 @@ The result will indicate whether the profile is **High Risk** or **Low Risk**.
 st.divider()
 
 # ---------------- NOTE ----------------
-
-
-
-# ---------------- NOTE ----------------
 st.info("""
 This tool is built for educational purposes and should not be used as the sole basis
 for real financial decisions.
+""")
+
+# ---------------- WHAT'S NEXT ----------------
+st.divider()
+
+st.header("What’s Next?")
+
+st.write("""
+This current version uses a pre-trained machine learning model, where predictions are made based on user-provided inputs.
+""")
+
+st.subheader("Future Roadmap")
+
+st.write("""
+**Stage 1:** Introduce user-level interaction by assigning a unique ID to each prediction, allowing users to track and revisit their results.
+
+**Stage 2:** Integrate a database system to store user inputs and predictions, enabling persistent data storage and retrieval for a more scalable application.
 """)
