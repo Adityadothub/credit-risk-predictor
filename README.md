@@ -11,3 +11,7 @@ and the overall problem framing—are influenced by that experience.
 
 This project extends those ideas into a machine learning-based system that provides an interactive interface 
 for credit risk prediction.
+
+
+# Link
+https://credit-risk-predictor-ambrnvr8btwub82mkoxqdn.streamlit.app/
