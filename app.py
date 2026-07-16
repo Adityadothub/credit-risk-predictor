@@ -8,7 +8,7 @@ st.set_page_config(
 # ✅ Highlighted box at top
 st.info("Inspired by a credit card delinquency analysis simulation completed on Forage. This project adapts key risk factors and extends them into a machine learning-based credit risk prediction tool.")
 
-# ---------------- TITLE ----------------
+# ---------------- TITLE -----------------
 st.title("Credit Risk Prediction System")
 
 # ---------------- INTRO ----------------
