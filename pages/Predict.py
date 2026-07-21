@@ -7,7 +7,12 @@ from database.connection import predictions_collection
 st.title("Credit Risk Prediction")
 
 # Load model
-model = joblib.load("XGB_credit_model.pkl")
+import os
+
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                          "XGB_credit_model.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 st.divider()
 

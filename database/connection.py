@@ -5,11 +5,13 @@ import os
 
 load_dotenv()
 
-# Use .env locally, Streamlit Secrets in deployment
 mongo_uri = os.getenv("CR_DB")
 
 if not mongo_uri:
-    mongo_uri = st.secrets["CR_DB"]
+    mongo_uri = st.secrets.get("CR_DB")
+
+if not mongo_uri:
+    raise ValueError("MongoDB connection string not found.")
 
 client = MongoClient(mongo_uri)
 
