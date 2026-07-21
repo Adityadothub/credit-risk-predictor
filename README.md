@@ -15,3 +15,6 @@ for credit risk prediction.
 
 # Link
 https://credit-risk-predictor-ambrnvr8btwub82mkoxqdn.streamlit.app/
+
+
+The prediction functionality is working correctly, but the prediction is not being saved to the MongoDB database due to an authentication issue. If you have any suggestions or can help identify the cause, I'd greatly appreciate your guidance.
