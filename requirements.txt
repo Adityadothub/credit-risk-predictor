@@ -1,0 +1,9 @@
+streamlit
+joblib
+numpy
+pandas
+scikit-learn
+xgboost
+pymongo[srv]
+python-dotenv
+bcrypt
