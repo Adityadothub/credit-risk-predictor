@@ -16,5 +16,6 @@ if not mongo_uri:
 client = MongoClient(mongo_uri)
 
 db = client["credit_risk_db"]
+
 predictions_collection = db["predictions"]
 users_collection = db["users"]

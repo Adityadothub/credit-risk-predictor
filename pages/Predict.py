@@ -1,16 +1,19 @@
 import streamlit as st
-from auth import require_login, show_logout_button
-from ui import apply_custom_style
-
-apply_custom_style()
-require_login()
-show_logout_button()
-
 import joblib
 import numpy as np
 import os
 from datetime import datetime
+
+from auth import require_login, show_logout_button
+from ui import apply_custom_style
 from database.connection import predictions_collection
+
+
+# ---------------- AUTHENTICATION ----------------
+
+apply_custom_style()
+require_login()
+show_logout_button()
 
 
 # ---------------- PAGE TITLE ----------------
@@ -30,26 +33,34 @@ model = joblib.load(MODEL_PATH)
 st.divider()
 
 
-# ---------------- INPUT ----------------
+# ---------------- CUSTOMER INFORMATION ----------------
 
 st.subheader("Customer Information")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    age = st.number_input("Age", 18, 100, 30)
+    age = st.number_input(
+        "Age",
+        18,
+        100,
+        30
+    )
+
     credit_amount = st.number_input(
         "Credit Amount (₹)",
         0,
         100000,
         5000
     )
+
     duration = st.number_input(
         "Loan Duration (months)",
         1,
         72,
         12
     )
+
 
 with col2:
     gender = st.selectbox(
@@ -80,7 +91,9 @@ st.subheader("Financial Details")
 
 col3, col4 = st.columns(2)
 
+
 with col3:
+
     housing_map = {
         "Free": 0,
         "Own": 1,
@@ -93,6 +106,7 @@ with col3:
     )
 
     housing = housing_map[housing_name]
+
 
     saving_map = {
         "Low": 0,
@@ -110,6 +124,7 @@ with col3:
 
 
 with col4:
+
     checking_map = {
         "Low": 0,
         "Moderate": 1,
@@ -122,6 +137,7 @@ with col4:
     )
 
     checking = checking_map[checking_name]
+
 
     purpose_map = {
         "Business": 0,
@@ -162,8 +178,10 @@ if st.button("Predict Risk"):
     ]])
 
     prediction = model.predict(features)[0]
+
     probability = model.predict_proba(features)[0][1]
 
+    # Probability corresponding to predicted class
     if prediction == 1:
         risk_probability = probability
     else:
@@ -222,6 +240,7 @@ if st.button("Predict Risk"):
     measures = []
 
     if prediction == 1:
+
         if credit_amount > 5000:
             measures.append(
                 "Consider reviewing or reducing the requested loan amount "
@@ -259,6 +278,7 @@ if st.button("Predict Risk"):
             )
 
     else:
+
         measures.append(
             "The current profile indicates relatively lower risk based "
             "on the information provided."
@@ -268,6 +288,7 @@ if st.button("Predict Risk"):
             "Continue standard creditworthiness and affordability checks "
             "before making a final lending decision."
         )
+
 
     for measure in measures:
         st.write(f"- {measure}")
@@ -317,6 +338,7 @@ if st.button("Predict Risk"):
             "The provided financial profile does not contain the specific "
             "risk indicators evaluated by this application's rule-based explanation."
         )
+
 
     for reason in reasons:
         st.write(f"- {reason}")
